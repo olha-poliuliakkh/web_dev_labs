@@ -114,7 +114,7 @@ web_dev_iasa/
 ## Результат перевірки з W3C validator, виявлені помилки
 - зайве додавання / у непарних тегів
 Приклад:
-було: '<meta charset="UTF-8" />'
+було: `<meta charset="UTF-8" />`
 треба: '<meta charset="UTF-8">'
 
 - '<section>' без заголовків
