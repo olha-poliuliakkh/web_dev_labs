@@ -1,0 +1,147 @@
+/* Layout Styles - Flexbox and Grid Structures */
+
+/* Container for consistent max-width and centering */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Layout */
+header {
+    background-color: var(--primary-green);
+    color: var(--color-text-light);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+header .logo {
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin-right: -40px;
+    transform: translateY(-15px);
+}
+
+header h1 {
+    color: var(--color-text-light);
+    margin: 0;
+    margin-left: -40px;
+}
+
+/* Navigation Layout */
+nav {
+    background-color: var(--color-bg-accent);
+    padding: 0;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    color: var(--dark-green);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* Burger Menu Checkbox (hidden) */
+.burger-toggle {
+    display: none;
+}
+
+/* Burger Menu Icon (hidden by default, shown on mobile) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--dark-green);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Main Content Layout */
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Section Spacing */
+section {
+    margin-bottom: 3rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer Layout */
+footer {
+    background-color: var(--dark-green);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    color: var(--color-text-light);
+}
+
+/* Flexbox utilities */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}

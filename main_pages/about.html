@@ -4,14 +4,27 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Про нас — Really Good Advices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
+        <a href="./index.html">
+            <img src="../css/logo_advices.png" alt="Really Good Advices Logo" class="logo">
+        </a>
         <h1>Про нас</h1>
     </header>
 
     <nav>
-        <ul>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-menu">
             <li><a href="./index.html">Головна</a></li>
             <li><a href="../advices/all_advices.html">Поради</a></li>
             <li><a href="./about.html">Про нас</a></li>

@@ -4,14 +4,27 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Усі поради</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
+        <a href="../main_pages/index.html">
+            <img src="../css/logo_advices.png" alt="Really Good Advices Logo" class="logo">
+        </a>
         <h1>Усі поради ТУТ</h1>
     </header>
 
     <nav>
-        <ul>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-menu">
             <li><a href="../main_pages/index.html">Головна</a></li>
             <li><a href="./all_advices.html">Поради</a></li>
             <li><a href="../main_pages/about.html">Про нас</a></li>
@@ -20,12 +33,42 @@
     </nav>
 
     <main>
-        <h3>Які поради тут наявні:</h3>
-            <ul>
-            <li><a href="#">Прибирання</a></li>
-            <li><a href="./cooking/category-cooking.html">Готування їжі</a></li>
-            <li><a href="#">Прання</a></li>
-            <li><a href="#">Догляд за рослинами</a></li>
-            <li><a href="#">Та інші поради</a></li>
-            </ul>
+        <h2>Які поради тут наявні:</h2>
+
+        <div class="advice-cards-grid">
+            <a href="#" class="advice-card">
+                <div class="card-icon">🧹</div>
+                <div class="card-category">ПРИБИРАННЯ</div>
+                <h3 class="card-title">Прибирання</h3>
+                <p class="card-description">Ефективні поради для швидкого та якісного прибирання вашого дому</p>
+            </a>
+
+            <a href="./cooking/category-cooking.html" class="advice-card">
+                <div class="card-icon">🍳</div>
+                <div class="card-category">ГОТУВАННЯ</div>
+                <h3 class="card-title">Готування їжі</h3>
+                <p class="card-description">Кулінарні поради від простих рецептів до шеф-кухарського рівня</p>
+            </a>
+
+            <a href="#" class="advice-card">
+                <div class="card-icon">👕</div>
+                <div class="card-category">ПРАННЯ</div>
+                <h3 class="card-title">Прання</h3>
+                <p class="card-description">Як правильно прати різні типи тканин та видаляти складні плями</p>
+            </a>
+
+            <a href="#" class="advice-card">
+                <div class="card-icon">🌱</div>
+                <div class="card-category">РОСЛИНИ</div>
+                <h3 class="card-title">Догляд за рослинами</h3>
+                <p class="card-description">Секрети догляду за кімнатними рослинами для початківців</p>
+            </a>
+
+            <a href="#" class="advice-card">
+                <div class="card-icon">✨</div>
+                <div class="card-category">ІНШЕ</div>
+                <h3 class="card-title">Інші поради</h3>
+                <p class="card-description">Корисні поради для повсякденного життя та побуту</p>
+            </a>
+        </div>
     </main>
