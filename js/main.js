@@ -17,9 +17,19 @@ function addElementToMain() {
     if (main) {
         // Create new element
         const newParagraph = document.createElement('p');
-        newParagraph.textContent = ''; // Empty text as per user request
+        newParagraph.textContent = '';
         newParagraph.id = 'dynamic-element';
         newParagraph.className = 'dynamic-item';
+
+        // Style the element to make it visible
+        newParagraph.style.height = '10px';
+        newParagraph.style.backgroundColor = '#62B880';
+        newParagraph.style.marginTop = '30px';
+        newParagraph.style.borderRadius = '5px';
+        newParagraph.style.width = '100%';
+
+        // Add element to the end of main container
+        main.appendChild(newParagraph);
     }
 }
 
