@@ -48,8 +48,8 @@ web_dev_iasa/
 │   ├── responsive.css                  # Медіа-запити для адаптивності
 │   └── logo_advices.png                # Логотип сайту
 │
-├── js/                                 # JavaScript (не використовується)
-│   └── new_file.js
+├── js/                                 # JavaScript
+│   └── main.js                         # Головний JS файл (DOM, Events, Validation,LocalStorage)
 │
 └── README.md                           # Опис проєкту та його структури
 ```
@@ -100,11 +100,48 @@ web_dev_iasa/
 
 ---
 
+
+### Структура CSS
+- `css/style.css` — головний файл, імпортує всі інші
+- `css/base.css` — змінні, reset, типографіка
+- `css/layout.css` — структура (header, nav, footer)
+- `css/components.css` — компоненти (кнопки, форми, картки)
+- `css/responsive.css` — медіа-запити
+
+### Класи карток
+```html
+<!-- Великі картки (all_advices.html) -->
+<div class="advice-cards-grid">
+  <a href="#" class="advice-card">...</a>
+</div>
+
+<!-- Малі картки (index.html) -->
+<div class="home-cards-grid">
+  <a href="#" class="home-card">...</a>
+</div>
+
+<!-- Текстові картки (category-cooking.html) -->
+<div class="cooking-cards-grid">
+  <a href="#" class="cooking-card">...</a>
+</div>
+```
+
+### CSS Variables
+```css
+var(--primary-green)   /* #62B880 */
+var(--white)           /* #FFFFFF */
+var(--light-green)     /* #E1E9E1 */
+var(--dark-green)      /* #29693F */
+```
+
+---
+
+
 ## Технології
 
 - **HTML5** — семантична розмітка
 - **CSS3** — повна стилізація з використанням сучасних можливостей
-- **JavaScript** — не використовується
+- **JavaScript (ES6+)** — інтерактивність, валідація форм, робота з DOM та LocalStorage
 
 ### Використані HTML-елементи:
 `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`
@@ -178,14 +215,143 @@ box-shadow: 0 12px 24px rgba(98, 184, 128, 0.2);
 
 ---
 
+## JavaScript функціонал
+
+### Підключення JavaScript
+Файл [js/main.js](js/main.js) підключено до всіх сторінок сайту через тег `<script>`:
+```html
+<script src="../js/main.js"></script>
+```
+
+### Реалізовані функції
+
+#### **1. Робота з DOM (Document Object Model)**
+
+**1.1. Маніпуляція елементами**
+- `changeHomeCardStyles()` — знаходить всі елементи з класом `.home-card` та змінює їхній стиль (фон: `#f0f8ff`, текст: `#2c3e50`)
+- `addElementToMain()` — додає новий елемент `<p>` до контейнера `<main>` через `createElement()`
+
+**1.2. Динамічна зміна контенту**
+- `displayCurrentDate()` — автоматично відображає поточну дату у футері у форматі `"© 2025 Really Good Advices | Сьогодні: 16 грудня 2025 р."`
+- `createAccordion()` — створює кнопку "Показати більше", яка при натисканні розкриває приховану останню секцію на сторінці (accordion pattern)
+
+#### **2. Події та обробники (Events)**
+
+**2.1. Робота з кліками**
+- `createThemeButton()` — створює кнопку "Змінити тему" в header
+- `toggleTheme()` — перемикає темну/світлу тему сайту через клас `.dark-theme`, зберігає вибір у LocalStorage
+
+**2.2. Події миші та клавіатури**
+- `setupNavigationHighlight()` — підсвічування навігаційного меню при наведенні миші
+  - Використовує event listeners: `mouseenter`, `mouseleave`
+  - Динамічно додає/видаляє стилі через JavaScript
+
+- `setupCardHoverEffects()` — ефекти при наведенні миші на картку
+  - Піднімання карток при hover: `transform: translateY(-10px)`
+  - Обертання іконок: `transform: scale(1.2) rotate(5deg)`
+
+- `setupKeyboardFontControl()` — зміна розміру шрифту клавішами:
+  - `ArrowUp` — збільшити шрифт (макс. 24px)
+  - `ArrowDown` — зменшити шрифт (мін. 10px)
+  - Зберігає налаштування в LocalStorage
+
+#### **3. Робота з формами та валідація**
+
+**3.1. Обробка події submit**
+- `setupFormValidation()` — обробляє відправку форм:
+  - `event.preventDefault()` — запобігає стандартній відправці
+  - Зчитує дані з усіх полів форми
+  - Виводить дані в консоль: `console.log('Дані форми:', formData)`
+
+**3.2. Клієнтська валідація через JavaScript**
+Власна логіка валідації (не HTML5):
+- **Поле "Ім'я"** — мінімум 3 символи
+- **Email** — повинен містити `@` та домен (regex: `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`)
+- **Повідомлення** — мінімум 10 символів
+
+**При помилці:**
+- Поле підсвічується червоною рамкою (`border: 2px solid red !important`)
+- Під полем з'являється текст помилки червоним кольором
+- Функція `showError(field, message)` вставляє повідомлення про помилку
+
+**При успішній валідації:**
+- Форма очищується: `form.reset()`
+- Показується зелене повідомлення: "Форму успішно відправлено!"
+- Функція `showSuccessMessage(form, message)` відображає повідомлення на 5 секунд
+
+#### **4. Робота з LocalStorage**
+
+**Збереження теми сайту (темна/світла)**
+- При натисканні кнопки "Змінити тему":
+  ```javascript
+  localStorage.setItem('siteTheme', 'dark'); // або 'light'
+  ```
+- При завантаженні сторінки:
+  ```javascript
+  const savedTheme = localStorage.getItem('siteTheme');
+  if (savedTheme === 'dark') {
+      applyDarkTheme();
+  }
+  ```
+- Функція `loadThemeFromLocalStorage()` відновлює збережену тему
+- Функція `applyDarkTheme()` застосовує всі стилі темної теми:
+  - Змінює кольори фону, тексту, заголовків
+  - Стилізує форми, кнопки, картки
+  - Налаштовувані константи для всіх кольорів темної теми
+
+**Додатково в LocalStorage:**
+- Розмір шрифту (`fontSize`) — зберігається при зміні через клавіші стрілок
+
+### Технології JavaScript
+
+- **ES6+ синтаксис** — arrow functions, const/let, template literals
+- **DOM API** — `querySelector`, `querySelectorAll`, `createElement`, `addEventListener`
+- **Event Handling** — click, mouseenter, mouseleave, keydown, submit
+- **LocalStorage API** — `getItem()`, `setItem()`
+- **Event.preventDefault()** — для форм
+- **classList API** — `add()`, `remove()`, `toggle()`, `contains()`
+- **Dynamic Styling** — `element.style.setProperty()`, `element.style.backgroundColor`
+- **Date API** — `new Date()`, `toLocaleDateString('uk-UA')`
+
+### Ініціалізація
+
+Весь код виконується після завантаження DOM:
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    // DOM manipulation
+    changeHomeCardStyles();
+    addElementToMain();
+    displayCurrentDate();
+    createAccordion();
+
+    // Events
+    createThemeButton();
+    setupNavigationHighlight();
+    setupCardHoverEffects();
+    setupKeyboardFontControl();
+
+    // Forms
+    setupFormValidation();
+
+    // LocalStorage
+    loadThemeFromLocalStorage();
+});
+```
+
+---
+
 
 ## Статистика
 
 - **HTML сторінок:** 6
 - **CSS файлів:** 5 (модульна структура)
-- **Форм:** 2 (з HTML5 валідацією)
+- **JavaScript файлів:** 1 (main.js з повним функціоналом)
+- **Форм:** 2 (з JavaScript валідацією)
+- **JavaScript функцій:** 14
+- **Event Listeners:** 7 типів (click, mouseenter, mouseleave, keydown, submit)
+- **LocalStorage ключів:** 2 (siteTheme, fontSize)
 - **Типів карток:** 3 (великі, малі, текстові)
-- **Зображень:** 6+
+- **Зображень:** 6
 - **Категорій порад:** 5
 - **Повних порад:** 1
 - **Адаптивних breakpoints:** 6
@@ -342,47 +508,11 @@ box-shadow: 0 12px 24px rgba(98, 184, 128, 0.2);
 
 ---
 
-
-### Структура CSS
-- `css/style.css` — головний файл, імпортує всі інші
-- `css/base.css` — змінні, reset, типографіка
-- `css/layout.css` — структура (header, nav, footer)
-- `css/components.css` — компоненти (кнопки, форми, картки)
-- `css/responsive.css` — медіа-запити
-
-### Класи карток
-```html
-<!-- Великі картки (all_advices.html) -->
-<div class="advice-cards-grid">
-  <a href="#" class="advice-card">...</a>
-</div>
-
-<!-- Малі картки (index.html) -->
-<div class="home-cards-grid">
-  <a href="#" class="home-card">...</a>
-</div>
-
-<!-- Текстові картки (category-cooking.html) -->
-<div class="cooking-cards-grid">
-  <a href="#" class="cooking-card">...</a>
-</div>
-```
-
-### CSS Variables
-```css
-var(--primary-green)   /* #62B880 */
-var(--white)           /* #FFFFFF */
-var(--light-green)     /* #E1E9E1 */
-var(--dark-green)      /* #29693F */
-```
-
----
-
 ## Розподіл роботи між авторами проєкту
 
-**Полюлях Ольга** - створення структури проєкту та файлів (HTML код), створення контенту для наповнення, CSS стилізація
+**Полюлях Ольга** - створення структури проєкту та файлів (HTML код), створення контенту для наповнення, CSS стилізація, додавання JS функціоналу.
 
-**Лавріненко Олександра** - авторство ідеї проєкту, створення контенту для наповнення, внесення правок в структуру проєкту та наповнення (HTML код) файлів, CSS стилізація
+**Лавріненко Олександра** - авторство ідеї проєкту, створення контенту для наповнення, внесення правок в структуру проєкту та наповнення (HTML код) файлів, CSS стилізація.
 
 ---
 
