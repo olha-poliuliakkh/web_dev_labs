@@ -1,0 +1,384 @@
+/* Components - Navigation, Buttons, Forms */
+
+/* Navigation */
+nav {
+    background-color: var(--color-bg-accent);
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    color: var(--color-text-dark);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--primary-green);
+    color: var(--color-text-light);
+}
+
+/* Burger Menu (hidden by default, shown on mobile) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text-dark);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Buttons */
+button,
+.button {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+button[type="submit"],
+.button-primary {
+    background-color: var(--color-button-primary);
+    color: var(--color-text-light);
+}
+
+button[type="submit"]:hover,
+.button-primary:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:active,
+.button-primary:active {
+    transform: translateY(0);
+}
+
+.button-secondary {
+    background-color: var(--color-button-secondary);
+    color: var(--color-text-dark);
+}
+
+.button-secondary:hover {
+    background-color: var(--primary-green);
+    color: var(--color-text-light);
+}
+
+/* Forms */
+form {
+    background-color: var(--color-bg-accent);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--light-green);
+    border-radius: 4px;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: var(--white);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+/* Form Validation Styles */
+input:required:invalid {
+    border-color: var(--light-green);
+}
+
+input:required:valid {
+    border-color: var(--primary-green);
+}
+
+/* Error messages */
+.error-message {
+    color: #d32f2f;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    display: none;
+}
+
+input:invalid ~ .error-message {
+    display: block;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Select dropdown */
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Contact info list */
+main ul li a[href^="mailto"],
+main ul li a[href^="https://t.me"],
+main ul li a[href^="https://instagram"],
+main ul li a[href^="tel:"] {
+    font-weight: 500;
+    color: var(--primary-green);
+}
+
+main ul li a[href^="mailto"]:hover,
+main ul li a[href^="https://t.me"]:hover,
+main ul li a[href^="https://instagram"]:hover,
+main ul li a[href^="tel:"]:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+/* Advise cards */
+
+/* Cards grid container */
+.advice-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+/* Individual card */
+.advice-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    background-color: var(--white);
+    border: 2px solid var(--light-green);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.advice-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(98, 184, 128, 0.2);
+    border-color: var(--primary-green);
+}
+
+/* Card icon */
+.card-icon {
+    font-size: 3.5rem;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-green);
+    border-radius: 50%;
+    margin-bottom: 1.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.advice-card:hover .card-icon {
+    background-color: var(--primary-green);
+    transform: scale(1.1);
+}
+
+/* Card category label */
+.card-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--primary-green);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Card title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin: 0 0 1rem 0;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Card description */
+.card-description {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Advice cards (small) */
+
+/* Cards grid container */
+.home-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+}
+
+/* Individual home card (smaller) */
+.home-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    background-color: var(--white);
+    border: 2px solid var(--light-green);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    min-height: 140px;
+}
+
+.home-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(98, 184, 128, 0.2);
+    border-color: var(--primary-green);
+}
+
+/* Home card icon (smaller) */
+.home-card-icon {
+    font-size: 2.5rem;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-green);
+    border-radius: 50%;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.home-card:hover .home-card-icon {
+    background-color: var(--primary-green);
+    transform: scale(1.08);
+}
+
+/* Home card title (smaller) */
+.home-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark-green);
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Cooking cards */
+
+/* Cooking cards grid container */
+.cooking-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    padding: 0.5rem 0;
+}
+
+/* Individual cooking card (no icon) */
+.cooking-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border: 2px solid var(--light-green);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    min-height: 120px;
+}
+
+.cooking-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(98, 184, 128, 0.2);
+    border-color: var(--primary-green);
+}
+
+/* Cooking card title */
+.cooking-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-green);
+    margin: 0 0 0.75rem 0;
+    text-align: left;
+    line-height: 1.4;
+}
+
+/* Cooking card description */
+.cooking-card-description {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: left;
+    line-height: 1.5;
+    margin: 0;
+}

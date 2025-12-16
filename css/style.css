@@ -1,0 +1,13 @@
+/* Main CSS File - Combines all stylesheets using @import */
+
+/* Import base styles (colors, fonts, typography) */
+@import url("base.css");
+
+/* Import layout styles (flexbox, grid, header, nav, footer) */
+@import url("layout.css");
+
+/* Import component styles (buttons, forms, cards) */
+@import url("components.css");
+
+/* Import responsive styles (media queries) */
+@import url("responsive.css");

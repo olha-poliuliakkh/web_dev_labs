@@ -4,14 +4,27 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Готування їжі — Really Good Advices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <header>
+        <a href="../../main_pages/index.html">
+            <img src="../../css/logo_advices.png" alt="Really Good Advices Logo" class="logo">
+        </a>
         <h1>Готування їжі</h1>
     </header>
 
     <nav>
-        <ul>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-menu">
             <li><a href="../../main_pages/about.html">Головна</a></li>
             <li><a href="../all_advices.html">Поради</a></li>
             <li><a href="../../main_pages/about.html">Про нас</a></li>
@@ -37,13 +50,33 @@
 
         <section>
             <h2>Поради з готування</h2>
-            <ul>
-                <li><a href="#">Як швидко нарізати овочі</a></li>
-                <li><a href="#">Правильне зберігання продуктів</a></li>
-                <li><a href="#">Простий рецепт на вечерю - смажена картопля</a></li>
-                <li><a href="#">Секрет приготування соусу Цезар</a></li>
-                <li><a href="./advices_cooking/advice-cooking-pelmens.html">Як зварити пельмені, щоб не було соромно</a></li>
-            </ul>
+
+            <div class="cooking-cards-grid">
+                <a href="#" class="cooking-card">
+                    <h3 class="cooking-card-title">Як швидко нарізати овочі</h3>
+                    <p class="cooking-card-description">Прості техніки нарізки овочів, які заощадять ваш час на кухні</p>
+                </a>
+
+                <a href="#" class="cooking-card">
+                    <h3 class="cooking-card-title">Правильне зберігання продуктів</h3>
+                    <p class="cooking-card-description">Дізнайтеся, як зберігати продукти, щоб вони залишалися свіжими довше</p>
+                </a>
+
+                <a href="#" class="cooking-card">
+                    <h3 class="cooking-card-title">Простий рецепт на вечерю - смажена картопля</h3>
+                    <p class="cooking-card-description">Покроковий рецепт приготування смаженої картоплі з золотистою скоринкою</p>
+                </a>
+
+                <a href="#" class="cooking-card">
+                    <h3 class="cooking-card-title">Секрет приготування соусу Цезар</h3>
+                    <p class="cooking-card-description">Класичний рецепт соусу Цезар в домашніх умовах</p>
+                </a>
+
+                <a href="./advices_cooking/advice-cooking-pelmens.html" class="cooking-card">
+                    <h3 class="cooking-card-title">Як зварити пельмені, щоб не було соромно</h3>
+                    <p class="cooking-card-description">Детальна інструкція варіння пельменів для ідеального результату</p>
+                </a>
+            </div>
         </section>
     </main>
 

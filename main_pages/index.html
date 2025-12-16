@@ -4,14 +4,27 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Really Good Advices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
+        <a href="./index.html">
+            <img src="../css/logo_advices.png" alt="Really Good Advices Logo" class="logo">
+        </a>
         <h1>Really Good Advices</h1>
     </header>
 
     <nav>
-        <ul>
+        <input type="checkbox" id="burger-toggle" class="burger-toggle">
+        <label for="burger-toggle" class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-menu">
             <li><a href="./index.html">Головна</a></li>
             <li><a href="../advices/all_advices.html">Поради</a></li>
             <li><a href="./about.html">Про нас</a></li>
@@ -22,14 +35,35 @@
     <main>
         <h2>Вітаємо на Really Good Advices</h2>
         <p>На цій платформі зібрані поради для допомоги у самостійному веденні побуту</p>
+
         <h3>Які поради тут наявні:</h3>
-            <ul>
-            <li><a href="#">Прибирання</a></li>
-            <li><a href="../advices/cooking/category-cooking.html">Готування їжі</a></li>
-            <li><a href="#">Прання</a></li>
-            <li><a href="#">Догляд за рослинами</a></li>
-            <li><a href="#">Та інші поради</a></li>
-            </ul>
+
+        <div class="home-cards-grid">
+            <a href="#" class="home-card">
+                <div class="home-card-icon">🧹</div>
+                <h4 class="home-card-title">Прибирання</h4>
+            </a>
+
+            <a href="../advices/cooking/category-cooking.html" class="home-card">
+                <div class="home-card-icon">🍳</div>
+                <h4 class="home-card-title">Готування їжі</h4>
+            </a>
+
+            <a href="#" class="home-card">
+                <div class="home-card-icon">👕</div>
+                <h4 class="home-card-title">Прання</h4>
+            </a>
+
+            <a href="#" class="home-card">
+                <div class="home-card-icon">🌱</div>
+                <h4 class="home-card-title">Догляд за рослинами</h4>
+            </a>
+
+            <a href="#" class="home-card">
+                <div class="home-card-icon">✨</div>
+                <h4 class="home-card-title">Інші поради</h4>
+            </a>
+        </div>
 
         <section>
             <h3>Підписка на новини</h3>
